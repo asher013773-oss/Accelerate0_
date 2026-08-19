@@ -18,9 +18,11 @@ fun HomeScreen() {
     }
 
     Box(modifier = Modifier.fillMaxSize()) {
-        GreenBackground(modifier = Modifier.matchParentSize())
-        SlidingSpinningSquircles(modifier = Modifier.matchParentSize())
-
+        GreenBackground()
+        SlidingSpinningSquircles()
+        AnimatedIntroSection()
+        HomeTab()
+        
         Column(modifier = Modifier.fillMaxSize()) {
             HomeTabRow(
                 selectedTab = selectedTab,
