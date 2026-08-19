@@ -18,8 +18,8 @@ fun HomeScreen() {
     }
 
     Box(modifier = Modifier.fillMaxSize()) {
-        BlobBackground(modifier = Modifier.matchParentSize())
-        DriftShapeLayer(modifier = Modifier.matchParentSize())
+        GreenBackground(modifier = Modifier.matchParentSize())
+        SlidingSpinningSquircles(modifier = Modifier.matchParentSize())
 
         Column(modifier = Modifier.fillMaxSize()) {
             HomeTabRow(
