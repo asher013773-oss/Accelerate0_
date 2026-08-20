@@ -1,4 +1,4 @@
-package com.example.unscramble
+package com.example.NovaCut
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -7,8 +7,8 @@ import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.Surface
 import androidx.compose.ui.Modifier
-import com.example.unscramble.ui.HomeScreen
-import com.example.unscramble.ui.theme.NovaTheme
+import com.example.NovaCut.ui.HomeScreen
+import com.example.NovaCut.ui.theme.NovaTheme
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
