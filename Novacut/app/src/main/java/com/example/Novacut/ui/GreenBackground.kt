@@ -1,3 +1,5 @@
+package com.example.NovaCut.ui
+
 import androidx.compose.animation.core.FastOutLinearInEasing
 import androidx.compose.animation.core.RepeatMode
 import androidx.compose.animation.core.animateFloat
@@ -12,6 +14,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.MeshGradientPainter
+import com.example.NovaCut.ui.theme.NovaCutTheme
 
 @Composable
 fun GreenBackground(modifier : Modifier = Modifier) {
