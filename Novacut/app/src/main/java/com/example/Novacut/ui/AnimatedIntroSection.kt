@@ -1,3 +1,5 @@
+package com.example.NovaCut.ui
+
 import androidx.compose.animation.core.Animatable
 import androidx.compose.animation.core.FastOutSlowInEasing
 import androidx.compose.animation.core.tween
@@ -29,7 +31,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
-
+import com.example.NovaCut.ui.theme.NovaCutTheme
 /**
  * Sequenced intro animation:
  *  1. [titleText] slides in from the left.
