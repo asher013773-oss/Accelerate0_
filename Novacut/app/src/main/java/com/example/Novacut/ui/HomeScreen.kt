@@ -1,4 +1,4 @@
-package com.yourpackage.novacut.ui
+package com.yourpackage.NovaCut.ui
 
 import android.content.Intent
 import android.net.Uri
@@ -15,7 +15,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
-import com.yourpackage.novacut.ui.SlidingSpinningSquircles
+import com.example.NovaCut.ui.SlidingSpinningSquircles
 
 @Composable
 fun HomeScreen() {
