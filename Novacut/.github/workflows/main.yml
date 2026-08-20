@@ -1,0 +1,113 @@
+name: Android CI
+
+on:
+  push:
+    branches: [ "main", "master" ]
+  pull_request:
+    branches: [ "main", "master" ]
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Set up JDK 17
+      uses: actions/setup-java@v4
+      with:
+        java-version: '17'
+        distribution: 'temurin'
+        cache: 'gradle'
+
+    - name: Setup environment secrets file (Novacut)
+      working-directory: Novacut
+      run: |
+        if [ ! -f ".env" ]; then
+          if [ -f ".env.example" ]; then
+            cp .env.example .env
+          else
+            touch .env
+          fi
+        fi
+
+    - name: Ensure Gradle wrapper exists (generate if missing)
+      shell: bash
+      run: |
+        set -euo pipefail
+
+        # Enter project directory containing the Gradle build
+        cd Novacut
+
+        if [ -x "./gradlew" ]; then
+          echo "Gradle wrapper found at Novacut/gradlew"
+        else
+          echo "No gradle wrapper found. Attempting to generate one..."
+
+          # 1) If a system gradle is available, use it to run `gradle wrapper`
+          if command -v gradle >/dev/null 2>&1; then
+            echo "System 'gradle' found; generating wrapper using it..."
+            gradle wrapper
+          else
+            echo "System 'gradle' not found; attempting to install via apt..."
+            # 2) Try installing gradle from apt (works on ubuntu-latest)
+            if sudo apt-get update -qq && sudo apt-get install -y gradle; then
+              echo "Installed gradle via apt; generating wrapper..."
+              gradle wrapper
+            else
+              echo "apt install gradle failed; falling back to downloading a Gradle distribution..."
+              GRADLE_VERSION=8.5
+              URL="https://services.gradle.org/distributions/gradle-${GRADLE_VERSION}-bin.zip"
+              TMP_ZIP="/tmp/gradle-${GRADLE_VERSION}.zip"
+
+              echo "Downloading Gradle ${GRADLE_VERSION} from ${URL}..."
+              wget -q "${URL}" -O "${TMP_ZIP}"
+              unzip -q "${TMP_ZIP}" -d /tmp
+              export PATH="/tmp/gradle-${GRADLE_VERSION}/bin:${PATH}"
+
+              if command -v gradle >/dev/null 2>&1; then
+                echo "Downloaded Gradle CLI available; generating wrapper..."
+                gradle wrapper
+              else
+                echo "Failed to obtain a gradle CLI. Cannot generate gradle wrapper. Failing job."
+                exit 1
+              fi
+            fi
+          fi
+        fi
+
+        # Ensure wrapper scripts are executable
+        chmod +x ./gradlew
+        echo "Gradle wrapper ready."
+
+    - name: Grant execute permission for gradlew (safe/no-op)
+      working-directory: Novacut
+      run: chmod +x ./gradlew || true
+
+    - name: Show project files for debug (optional)
+      run: |
+        echo "Project root listing:"
+        ls -la
+        echo "Novacut directory listing:"
+        ls -la Novacut || true
+
+    - name: Build Debug APK
+      working-directory: Novacut
+      run: |
+        # Use the wrapper that we ensured above
+        ./gradlew :app:assembleDebug --no-daemon --stacktrace
+
+    - name: Show APK outputs (for debugging)
+      run: |
+        echo "APK outputs (Novacut/app/build):"
+        ls -la Novacut/app/build/outputs || true
+
+    - name: Upload APK
+      uses: actions/upload-artifact@v4
+      with:
+        name: NovaCut-debug-apk
+        path: Novacut/app/build/outputs/apk/debug/*.apk
