@@ -39,15 +39,6 @@ fun HomeScreen() {
                 selectedTab = selectedTab,
                 onTabSelected = { selectedTab = it }
             )
-
-            when (selectedTab) {
-                HomeTab.EDITS -> EditsTabContent(
-                    projects = projects,
-                    onCreateProject = { videoPickerLauncher.launch("video/*") }
-                )
-                HomeTab.IMAGE -> { /* Image tab content */ }
-                HomeTab.AUDIO -> { /* Audio tab content */ }
-            }
         }
     }
 }
