@@ -22,7 +22,12 @@ fun HomeScreen() {
     var selectedTab by remember { mutableStateOf(HomeTab.EDITS) }
     val context = LocalContext.current
 
-    Box(modifier = Modifier.fillMaxSize()) {
+    Box(modifier = Modifier 
+        .fillMaxSize(),
+        .background(
+            brush = Brush.horizontalGradient(
+                colors = listOf(Color.Red, Color.Blue)
+            ) {
         GreenBackground()
         SlidingSpinningSquircles()
         AnimatedIntroSection()
