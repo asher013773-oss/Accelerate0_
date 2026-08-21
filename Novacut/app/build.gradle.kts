@@ -6,7 +6,7 @@ plugins {
 }
 
 android {
-    namespace = "com.yourpackage.novacut"
+    namespace = "com.example.novacut"
     compileSdk = 35
 
     defaultConfig {
