@@ -1,4 +1,4 @@
-package com.example.NovaCut.ui.theme
+package com.example.Novacut.ui.theme
 
 import androidx.compose.ui.graphics.Color
 
