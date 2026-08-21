@@ -8,14 +8,14 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.Surface
 import androidx.compose.ui.Modifier
 import com.example.Novacut.ui.HomeScreen
-import com.example.Novacut.ui.theme.NovaTheme
+import com.example.Novacut.ui.theme.NovacutTheme
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         enableEdgeToEdge()
         super.onCreate(savedInstanceState)
         setContent {
-            NovaTheme{
+            NovacutTheme{
                 Surface(
                     modifier = Modifier.fillMaxSize(),
                 ) {
