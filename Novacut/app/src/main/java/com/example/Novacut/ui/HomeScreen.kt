@@ -20,21 +20,7 @@ import com.example.Novacut.ui.SlidingSpinningSquircles
 @Composable
 fun HomeScreen() {
     var selectedTab by remember { mutableStateOf(HomeTab.EDITS) }
-    var projects by remember { mutableStateOf<List<Project>>(emptyList()) }
-
     val context = LocalContext.current
-
-    val videoPickerLauncher = rememberLauncherForActivityResult(
-        contract = ActivityResultContracts.GetContent()
-    ) { uri: Uri? ->
-        uri?.let { selectedUri ->
-            context.contentResolver.takePersistableUriPermission(
-                selectedUri,
-                Intent.FLAG_GRANT_READ_URI_PERMISSION
-            )
-            projects = projects + createProjectFromUri(selectedUri)
-        }
-    }
 
     Box(modifier = Modifier.fillMaxSize()) {
         GreenBackground()
