@@ -1,3 +1,5 @@
+package com.example.Novacut.ui
+
 import androidx.compose.animation.core.Animatable
 import androidx.compose.animation.core.FastOutSlowInEasing
 import androidx.compose.animation.core.tween
@@ -34,6 +36,7 @@ import kotlinx.coroutines.isActive
 import kotlinx.coroutines.launch
 import kotlin.math.roundToInt
 import kotlin.random.Random
+import com.example.Novacut.ui.theme.NovacutTheme
 
 /**
  * A true-ish squircle (superellipse approximation via cubic Beziers).
