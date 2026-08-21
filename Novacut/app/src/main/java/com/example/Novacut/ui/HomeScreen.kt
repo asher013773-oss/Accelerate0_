@@ -1,4 +1,4 @@
-package com.yourpackage.Novacut.ui
+package com.example.Novacut.ui
 
 import android.content.Intent
 import android.net.Uri
