@@ -1,4 +1,4 @@
-package com.example.NovaCut.ui.theme
+package com.example.Novacut.ui.theme
 import android.app.Activity
 import android.os.Build
 import androidx.compose.foundation.isSystemInDarkTheme
