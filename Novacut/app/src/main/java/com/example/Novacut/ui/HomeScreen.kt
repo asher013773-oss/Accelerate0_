@@ -23,11 +23,13 @@ fun HomeScreen() {
     val context = LocalContext.current
 
     Box(modifier = Modifier 
-        .fillMaxSize(),
+        .fillMaxSize()
         .background(
             brush = Brush.horizontalGradient(
-                colors = listOf(Color.Red, Color.Blue)
-            ) {
+                colors = listOf(Color.Green, Color.Grey)
+            ) 
+        )
+    ) {
         GreenBackground()
         SlidingSpinningSquircles()
         AnimatedIntroSection()
