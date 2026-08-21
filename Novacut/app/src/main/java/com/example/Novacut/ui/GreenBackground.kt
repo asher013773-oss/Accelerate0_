@@ -40,27 +40,25 @@ val snow = Color(0xFFFFFAFA)
 val white = Color(0xFFFFFFFF)
 
 val gradientPainter = remember(animatedOffset) {
-    MeshGradientPainter(rows = 3, columns = 2) {
-        // Row 0 — deep anchor along the top, dark to light
+    MeshGradientPainter(rows = 4, columns = 3) {
+        // Row 0 — anchor top edge, dark corners bleeding into light center
         setVertex(0, 0, Offset(0.0f, 0.0f), darkGreen)
-        setVertex(0, 1, Offset(0.5f, 0.0f) + Offset(animatedOffset * 0.5f, 0f), paleGreen)
-        setVertex(0, 2, Offset(1.0f, 0.0f), whiteSmoke)
+        setVertex(0, 1, Offset(0.5f, 0.0f) + Offset(animatedOffset, 0f), whiteSmoke)
+        setVertex(0, 2, Offset(1.0f, 0.0f), forestGreen)
 
-        // Row 1 — the chaotic middle band, offsets pulling opposite directions
-        setVertex(1, 0, Offset(0.0f, 0.3f) + Offset(animatedOffset, -animatedOffset), forestGreen)
-        setVertex(1, 1, Offset(0.45f, 0.35f) + Offset(-animatedOffset * 1.4f, animatedOffset), snow)
-        setVertex(1, 2, Offset(1.0f, 0.3f) + Offset(-animatedOffset, animatedOffset * 0.6f), lightGreen)
+        // Row 1 — the wild swing zone
+        setVertex(1, 0, Offset(0.0f, 0.3f) + Offset(0f, animatedOffset), lightGreen)
+        setVertex(1, 1, Offset(0.4f, 0.35f) + Offset(animatedOffset * 1.5f, animatedOffset), snow)
+        setVertex(1, 2, Offset(1.0f, 0.3f) + Offset(0f, -animatedOffset), paleGreen)
 
-        // Row 2 — second chaotic band, inverse phase to row 1 for cross-current motion
-        setVertex(2, 0, Offset(0.0f, 0.7f) + Offset(-animatedOffset, animatedOffset), ghostWhite)
-        setVertex(2, 1, Offset(0.5f, 0.75f) + Offset(animatedOffset * 1.4f, -animatedOffset), forestGreen)
-        setVertex(2, 2, Offset(1.0f, 0.7f) + Offset(animatedOffset, -animatedOffset * 0.6f), darkGreen)
+        // Row 2 — mirror swing, opposite phase for churn
+        setVertex(2, 0, Offset(0.0f, 0.7f) + Offset(0f, -animatedOffset), ghostWhite)
+        setVertex(2, 1, Offset(0.4f, 0.75f) + Offset(-animatedOffset * 1.5f, animatedOffset), forestGreen)
+        setVertex(2, 2, Offset(1.0f, 0.7f) + Offset(0f, animatedOffset), lightGreen)
 
-        // Row 3 — settle back to a clean anchor along the bottom
-        setVertex(3, 0, Offset(0.0f, 1.0f), lightGreen)
-        setVertex(3, 1, Offset(0.5f, 1.0f) + Offset(-animatedOffset * 0.5f, 0f), white)
+        // Row 3 — anchor bottom edge
+        setVertex(3, 0, Offset(0.0f, 1.0f), white)
+        setVertex(3, 1, Offset(0.5f, 1.0f) + Offset(-animatedOffset, 0f), darkGreen)
         setVertex(3, 2, Offset(1.0f, 1.0f), paleGreen)
-            }
-        }
     }
 }
