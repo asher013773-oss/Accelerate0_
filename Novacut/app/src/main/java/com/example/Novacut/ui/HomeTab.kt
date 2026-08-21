@@ -1,4 +1,4 @@
-package com.yourpackage.NovaCut.ui
+package com.yourpackage.Novacut.ui
 
 import androidx.compose.material3.ScrollableTabRow
 import androidx.compose.material3.Tab
@@ -9,7 +9,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
-import com.example.NovaCut.ui.theme.NovaCutTheme
+import com.example.Novacut.ui.theme.NovacutTheme
 
 enum class HomeTab(val label: String) {
     EDITS("Edits"),
