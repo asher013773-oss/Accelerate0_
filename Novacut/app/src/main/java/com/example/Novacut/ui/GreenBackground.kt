@@ -39,7 +39,7 @@ val ghostWhite = Color(0xFFF8F8FF)
 val snow = Color(0xFFFFFAFA)
 val white = Color(0xFFFFFFFF)
 
-val gradientPainter = remember(animatedOffset) {
+val gradientPainter = remember {
     MeshGradientPainter(rows = 4, columns = 3) {
         // Row 0 — anchor top edge, dark corners bleeding into light center
         setVertex(0, 0, Offset(0.0f, 0.0f), darkGreen)
