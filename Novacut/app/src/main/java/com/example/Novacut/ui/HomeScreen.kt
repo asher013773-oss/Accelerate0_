@@ -30,7 +30,6 @@ fun HomeScreen() {
             ) 
         )
     ) {
-        GreenBackground()
         SlidingSpinningSquircles()
         AnimatedIntroSection()
         HomeTab()
