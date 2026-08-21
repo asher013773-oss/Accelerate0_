@@ -16,6 +16,9 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import com.example.Novacut.ui.SlidingSpinningSquircles
+import androidx.compose.foundation.background
+import androidx.compose.ui.graphics.Brush
+import androidx.compose.ui.graphics.Color
 
 @Composable
 fun HomeScreen() {
@@ -26,13 +29,13 @@ fun HomeScreen() {
         .fillMaxSize()
         .background(
             brush = Brush.horizontalGradient(
-                colors = listOf(Color.Green, Color.Grey)
+                colors = listOf(Color.Green, Color.Gray)
             ) 
         )
     ) {
         SlidingSpinningSquircles()
         AnimatedIntroSection()
-        HomeTab()
+        HomeTabrow()
         
         Column(modifier = Modifier.fillMaxSize()) {
             HomeTabRow(
