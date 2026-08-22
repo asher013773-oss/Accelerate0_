@@ -1,3 +1,10 @@
+package com.example.Novacut
+
+import android.app.Application
+import android.content.ContentValues
+import android.provider.MediaStore
+import android.os.Environment
+
 class NovaCutApplication : Application() {
     override fun onCreate() {
         super.onCreate()
