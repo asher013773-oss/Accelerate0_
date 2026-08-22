@@ -6,11 +6,11 @@ plugins {
 }
 
 android {
-    namespace = "com.example.novacut"
+    namespace = "com.example.Novacut"
     compileSdk = 35
 
     defaultConfig {
-        applicationId = "com.example.novacut"
+        applicationId = "com.example.Novacut"
         minSdk = 29
         targetSdk = 35
         versionCode = 1
