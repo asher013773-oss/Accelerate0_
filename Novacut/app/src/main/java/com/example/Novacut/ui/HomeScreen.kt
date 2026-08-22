@@ -35,7 +35,6 @@ fun HomeScreen() {
     ) {
         SlidingSpinningSquircles()
         AnimatedIntroSection()
-        HomeTabRow()
         
         Column(modifier = Modifier.fillMaxSize()) {
             HomeTabRow(
