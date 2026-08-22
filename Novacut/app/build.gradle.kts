@@ -10,7 +10,7 @@ android {
     compileSdk = 35
 
     defaultConfig {
-        applicationId = "com.yourpackage.novacut"
+        applicationId = "com.example.novacut"
         minSdk = 29
         targetSdk = 35
         versionCode = 1
